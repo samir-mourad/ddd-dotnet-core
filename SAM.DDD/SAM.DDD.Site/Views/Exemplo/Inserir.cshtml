@@ -1,0 +1,50 @@
+﻿@model SAM.DDD.Application.ViewModels.ColaboradorViewModel
+
+@section breadcumbs {
+    <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+        <ul class="breadcrumb">
+            <li>
+                <i class="ace-icon fa fa-home home-icon"></i>
+                <a href="/">Home</a>
+            </li>
+            <li>Exemplo</li>
+            <li class="active">Inserir Colaborador</li>
+        </ul>
+    </div>
+}
+
+<div class="page-header">
+    <h1> Inserir Colaborador </h1>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+
+        <form method="POST" asp-action="Inserir">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NumeroFuncional" class="control-label">@Html.DisplayNameFor(model => model.NumeroFuncional)</label>
+                <input asp-for="NumeroFuncional" class="form-control" />
+                <span asp-validation-for="NumeroFuncional" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdUsuario" class="control-label">@Html.DisplayNameFor(model => model.IdUsuario)</label>
+                <input asp-for="IdUsuario" class="form-control" />
+                <span asp-validation-for="IdUsuario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NomeCompleto" class="control-label">@Html.DisplayNameFor(model => model.NomeCompleto)</label>
+                <input asp-for="NomeCompleto" class="form-control" />
+                <span asp-validation-for="NomeCompleto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ativo" class="control-label">@Html.DisplayNameFor(model => model.Ativo)</label>
+                <input type="checkbox" asp-for="Ativo" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-default" />
+            </div>
+        </form>
+
+    </div>
+</div>

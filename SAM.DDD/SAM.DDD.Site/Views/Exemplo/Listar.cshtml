@@ -1,0 +1,44 @@
+﻿@model IEnumerable<SAM.DDD.Application.ViewModels.ColaboradorViewModel>
+
+@section breadcumbs {
+    <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+        <ul class="breadcrumb">
+            <li>
+                <i class="ace-icon fa fa-home home-icon"></i>
+                <a href="/">Home</a>
+            </li>
+            <li>Exemplo</li>
+            <li class="active">Listar Colaboradores</li>
+        </ul>
+    </div>
+}
+
+<div class="page-header">
+    <h1> Listar Colaboradores </h1>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.NumeroFuncional)</th>
+                    <th>@Html.DisplayNameFor(model => model.IdUsuario)</th>
+                    <th>@Html.DisplayNameFor(model => model.NomeCompleto)</th>
+                    <th>@Html.DisplayNameFor(model => model.Ativo)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model){
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.NumeroFuncional)</td>
+                    <td>@Html.DisplayFor(modelItem => item.IdUsuario)</td>
+                    <td>@Html.DisplayFor(modelItem => item.NomeCompleto)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Ativo)</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
