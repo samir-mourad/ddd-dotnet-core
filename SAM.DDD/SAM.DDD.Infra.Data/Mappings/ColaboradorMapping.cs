@@ -31,7 +31,7 @@ namespace SAM.DDD.Infra.Data.Mappings
             builder.HasIndex(p => p.Email)
                    .IsUnique();
 
-            builder.Property(p => p.IdUsuarioSGI)
+            builder.Property(p => p.IdUsuario)
                    .IsRequired();
 
             builder.Property(p => p.NomeCompleto)

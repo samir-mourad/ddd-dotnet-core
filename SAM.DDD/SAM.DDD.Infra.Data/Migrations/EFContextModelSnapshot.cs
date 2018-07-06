@@ -54,7 +54,7 @@ namespace SAM.DDD.Infra.Data.Migrations
                         .HasColumnType("varchar(100)")
                         .HasMaxLength(100);
 
-                    b.Property<int>("IdUsuarioSGI");
+                    b.Property<int>("IdUsuario");
 
                     b.Property<string>("NomeCompleto")
                         .IsRequired()

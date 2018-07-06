@@ -27,7 +27,7 @@ namespace SAM.DDD.Site
 
             Ioc.RegisterDependencies(services, Configuration);
 
-            services.AddSgiAuthentication(Configuration);
+            services.AddOAuthAuthentication(Configuration);
             services.AddAuthorization(p => Policies.Configure(p));
         }
 

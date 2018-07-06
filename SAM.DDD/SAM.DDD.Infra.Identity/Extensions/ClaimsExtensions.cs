@@ -41,15 +41,15 @@ namespace SAM.DDD.Infra.Identity.Extensions
             identity.AddClaims(filteredClaims);
         }
 
-        public static void AddSgiClaims(this ClaimsIdentity identity, IEnumerable<Claim> claims)
+        public static void AddClaims(this ClaimsIdentity identity, IEnumerable<Claim> claims)
         {
-            var claimsSgi = FilterClaims(identity.Claims, claims);
-            identity.AddClaims(claimsSgi);
+            var claimsUser = FilterClaims(identity.Claims, claims);
+            identity.AddClaims(claimsUser);
         }
 
-        public static int GetSgiIdClaim(this ClaimsIdentity identity) => Convert.ToInt32(identity.FindFirst("id").Value);
-        public static string GetSgiEmailClaim(this ClaimsIdentity identity) => identity.FindFirst("email").Value;
-        public static string GetSgiUserNameClaim(IEnumerable<Claim> identity) => identity.FirstOrDefault(x => x.Type == "name")?.Value;
+        public static int GetClaims(this ClaimsIdentity identity) => Convert.ToInt32(identity.FindFirst("id").Value);
+        public static string GetEmailClaim(this ClaimsIdentity identity) => identity.FindFirst("email").Value;
+        public static string GetUserNameClaim(IEnumerable<Claim> identity) => identity.FirstOrDefault(x => x.Type == "name")?.Value;
 
         private static JwtSecurityToken ReadAccessToken(string accessToken) =>
                new JwtSecurityTokenHandler().ReadToken(accessToken) as JwtSecurityToken;

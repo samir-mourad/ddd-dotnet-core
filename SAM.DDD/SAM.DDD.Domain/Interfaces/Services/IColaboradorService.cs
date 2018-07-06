@@ -4,6 +4,6 @@ namespace SAM.DDD.Domain.Interfaces.Services
 {
     public interface IColaboradorService : IBaseService<Colaborador>
     {
-        Colaborador UpdateIdSgi(string email, int? id = null);
+        Colaborador UpdateId(string email, int? id = null);
     }
 }

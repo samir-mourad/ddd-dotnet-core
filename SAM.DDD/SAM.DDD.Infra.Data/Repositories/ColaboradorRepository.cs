@@ -15,7 +15,7 @@ namespace SAM.DDD.Infra.Data.Repositories
 
         public Colaborador GetByEmailOrId(string email, int? id = null)
         {
-            return context.Colaborador.Where(i => i.IdUsuarioSGI == id 
+            return context.Colaborador.Where(i => i.IdUsuario == id 
                                                || i.Email.Equals(email))
                                       .FirstOrDefault();
         }

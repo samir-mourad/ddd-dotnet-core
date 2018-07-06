@@ -30,7 +30,7 @@ namespace SAM.DDD.Infra.Data.Migrations
                     NumeroFuncional = table.Column<int>(nullable: false),
                     Ativo = table.Column<bool>(nullable: false, defaultValue: true),
                     Email = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false),
-                    IdUsuarioSGI = table.Column<int>(nullable: false),
+                    IdUsuario = table.Column<int>(nullable: false),
                     NomeCompleto = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: false)
                 },
                 constraints: table =>

@@ -13,7 +13,7 @@ namespace SAM.DDD.Infra.Identity.Extensions
 {
     public static class ServicesExtensions
     {
-        public static void AddSgiAuthentication(this IServiceCollection services, IConfiguration configuration)
+        public static void AddOAuthAuthentication(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddAuthentication(options =>
             {
@@ -55,16 +55,16 @@ namespace SAM.DDD.Infra.Identity.Extensions
                         claimsIdentity.AddClaims(accessToken);
 
                         var httpClient = new IdentityService(configuration, accessToken);
-                        var idSgi = claimsIdentity.GetSgiIdClaim();
-                        var userSgi = httpClient.GetIdentityAsync(idSgi).Result;
+                        var id = claimsIdentity.GetClaims();
+                        var user = httpClient.GetIdentityAsync(id).Result;
 
-                        if (!userSgi.IuCollaborator) throw new Exception("Colaborador inativo no SGI.");
+                        if (!user.IuCollaborator) throw new Exception("Colaborador inativo");
 
-                        claimsIdentity.AddSgiClaims(userSgi.Claims);
+                        ClaimsExtensions.AddClaims(claimsIdentity, user.Claims);
 
                         var serviceProvider = services.BuildServiceProvider();
                         var colaboradorService = serviceProvider.GetService<IColaboradorService>();
-                        var colaborador = colaboradorService.UpdateIdSgi("daniela.aggio@institutounibanco.org.br", claimsIdentity.GetSgiIdClaim()); //claimsIdentity.GetSgiEmailClaim(), claimsIdentity.GetSgiIdClaim());
+                        var colaborador = colaboradorService.UpdateId(claimsIdentity.GetEmailClaim(), claimsIdentity.GetClaims());
 
                         if (colaborador != null && colaborador.TemSubordinados)
                             claimsIdentity.AddUsuarioSuperiorClaims();

@@ -29,7 +29,7 @@
                         <img class="nav-user-photo" src="~/assets/images/avatars/avatar2.png" alt="Jason's Photo" />
                         <span class="user-info">
                             <small>Bem-vindo,</small>
-                            @ClaimsExtensions.GetSgiUserNameClaim(Context.User.Claims);
+                            @ClaimsExtensions.GetUserNameClaim(Context.User.Claims);
                         </span>
 
                         <i class="ace-icon fa fa-caret-down"></i>

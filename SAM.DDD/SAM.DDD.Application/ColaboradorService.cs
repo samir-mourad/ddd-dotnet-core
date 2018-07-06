@@ -21,7 +21,7 @@ namespace SAM.DDD.Application
         }
 
 
-        public Colaborador UpdateIdSgi(string email, int? id = null)
+        public Colaborador UpdateId(string email, int? id = null)
         {
             using (unitOfWork)
             {
@@ -29,7 +29,7 @@ namespace SAM.DDD.Application
 
                 if (colaborador != null)
                 {
-                    colaborador.IdUsuarioSGI = (int)id;
+                    colaborador.IdUsuario = (int)id;
                     base.Update(colaborador);
 
                     var hasChild = hierarquiaRepository.HasChild(colaborador.NumeroFuncional);

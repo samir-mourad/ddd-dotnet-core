@@ -10,7 +10,7 @@ namespace SAM.DDD.Application.ViewModels
         public int NumeroFuncional { get; set; }
 
         [Required]
-        [DisplayName("Id SGI")]
+        [DisplayName("Id")]
         public int IdUsuario { get; set; }
 
         [Required, StringLength(100)]
